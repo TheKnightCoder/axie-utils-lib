@@ -315,7 +315,7 @@ class TrezorClaim(TrezorAxieGraphQL):
             signature['amount'],
             signature['timestamp'],
             signature['signature']
-        ).buildTransaction({'gas': self.gas, 'gasPrice': self.w3.toWei('1', 'gwei'), 'nonce': nonce})
+        ).buildTransaction({'gas': self.gas, 'gasPrice': 0, 'nonce': nonce})
         data = self.w3.toBytes(hexstr=claim['data'])
         to = self.w3.toBytes(hexstr=SLP_CONTRACT)
         sig = ethereum.sign_tx(
